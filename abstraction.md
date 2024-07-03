@@ -1,9 +1,18 @@
 # Notes on Abstractions
 
-[Source: Introduction to computation and programming using Python : with application to understanding
-data / John V. Guttag. Second edition. ISBN 9780262529624]
+Source:
 
-## 4.1.1 Function Definitions
+* Guttag, John, *Introduction to computation and programming using Python: with application to
+  understanding data*  (Second edition. ISBN 9780262529624)
+   
+* Guttag, John, *Introduction to computation and programming using Python: with application to
+  computational modeling and understanding data* (Third edition. ISBN 9780262542364)
+
+* Edsger W. Dijkstra, *The Humble Programmer* (ACM Turing Lecture 1972 EWD340)
+
+## Function Definitions
+
+<!-- section 4.1.1 -->
 
 In Python each function definition is of the form
 
@@ -21,7 +30,6 @@ def maxVal(x, y):
 
 ```
 
-
 `def` is a **reserved word** that tells Python that a function is about to be defined. 
 
 `function_name` ("maxVal" in the example) is simply a name that is used to refer to the function.
@@ -31,16 +39,17 @@ following the function name (x,y in the example).
 
 When the function is used, the formal parameters are bound—as in an assignment statement—to
 the **actual parameters** (aka **arguments**) of the **function invocation**
-(aka **function call**). For example, the invocation `maxVal(3, 4)` binds `x` to `3`, and `y` to
-`4`.
+(aka **function call**). 
+For example, the invocation `maxVal(3, 4)` binds `x` to `3`, and `y` to `4`.
 
 Parameters provide something called **lambda abstraction**, allowing programmers to write code that
-manipulates not specific objects, but instead what everobjects the caller of the function chooses
-to use as actual parameters. (The name “lambda abstraction” is derived from mathematics developed
+manipulates not specific objects, but instead whatever objects the caller of the function chooses
+to use as actual parameters. (The name "lambda abstraction" is derived from mathematics developed
 by Alonzo Church in the 1930s and 1940s.)
 
+## Specifications
 
-## 4.2 Specifications
+<!-- section 4.2 -->
 
 Functions are a way of creating computational elements that we can think of as primitives. Just as
 we have the built-in functions max and abs, we would like to have the equivalent of a built-in
@@ -51,17 +60,16 @@ providing decomposition and abstraction.
 self-contained, and that may be reused in different settings.
 
 **Abstraction** hides detail. It allows us to use a piece of code as if it were a black box—that is,
-something whose interior details we cannot see, don’t need to see, and shouldn’t even want to see.
+something whose interior details we cannot see, don't need to see, and shouldn't even want to see.
 The essence of abstraction is preserving information that is relevant in a given context, and
 forgetting information that is irrelevant in that context. The key to using abstraction
 effectively in programming is finding a notion of relevance that is appropriate for both the
 builder of an abstraction and the potential clients of the abstraction. That is the true art of
 programming.
 
-## 10 Classes and Object-Oriented Programming
+## Classes and Object-Oriented Programming
 
-[Source: Introduction to computation and programming using Python: with application to computational
-modeling and understanding data / John V. Guttag. Third edition. ISBN 9780262542364]
+<!-- Chapter 10 -->
 
 **Objects** are the core things that Python programs manipulate. Every object has a **type** that
 defines the kinds of things that programs can do with that object. We have relied upon built-in
@@ -70,7 +78,9 @@ types such as `float` and `str` and the methods associated with those types.
 We have already looked at a mechanism that allows programmers to define new functions; we now look
 at a mechanism that allows programmers to define new types.
 
-### 10.1 Abstract Data Types and Classes
+### Abstract Data Types and Classes
+
+<!-- section 10.1 -->
 
 An **abstract data type** is a set of objects and the operations on those objects. These are bound
 together so that programmers can pass an object from one part of a program to another, and in doing
@@ -84,7 +94,7 @@ the program from the data structures, algorithms, and code involved in providing
 the type abstraction.
 
 Abstraction suppresses detail. The key is to suppress the appropriate details. This is where data
-abstraction hits the mark. We can create domain- specific types that provide a convenient
+abstraction hits the mark. We can create domain-specific types that provide a convenient
 abstraction. Ideally, these types capture concepts that will be relevant over the lifetime of a
 program. If we start the programming process by devising types that will be relevant months and
 even decades later, we have a great leg up in maintaining that software.
@@ -97,7 +107,7 @@ even decades later, we have a great leg up in maintaining that software.
  https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html ]
 
 > We all know that the only mental tool by means of which a very finite piece of reasoning can cover
-  a myriad cases is called “abstraction”; as a result the effective exploitation of his powers of
+  a myriad cases is called "abstraction"; as a result the effective exploitation of his powers of
   abstraction must be regarded as one of the most vital activities of a competent programmer. In
   this connection it might be worth-while to point out that the purpose of abstracting is not to be
   vague, but to create a new semantic level in which one can be absolutely precise. 
