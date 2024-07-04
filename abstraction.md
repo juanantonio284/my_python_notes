@@ -1,4 +1,4 @@
-# Notes on Abstractions
+# Notes on Abstraction
 
 Source:
 
