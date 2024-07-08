@@ -1,6 +1,6 @@
-This code, and a full tutorial can be found at:  
+This code, and a full tutorial, can be found at:  
 https://realpython.com/python-thinking-recursively/  
-Here, I present a condensed version that I find clearer (changed some comments and some variables)
+Here I present a condensed version that I find clearer (changed explanations and some code)
 
 # Get an intuition of how recursion works
 

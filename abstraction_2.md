@@ -120,10 +120,12 @@ arguments and then evaluating the body**. For example,
 
 In more familiar notation, we might denote the above lambda expression by
 
-```
+```CLU
+
 squares = proc (x, y: int) returns (int)
     return (x * x + y * y)
     end
+    
 ```
 
 and the binding of actual to formal parameters and evaluation of the body by the procedure call
@@ -164,7 +166,7 @@ body. A good way to write such comments is to use pairs of assertions.
 
 Consider, for example, the `sqrt` procedure in figure 1.3.
 
-```
+```CLU
 
 Figure 1.3 The sqrt procedure.
 

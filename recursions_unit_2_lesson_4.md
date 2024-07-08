@@ -3,8 +3,7 @@
 From the MITx course **Introduction to Computer Science and Programming Using Python (6.00.1x)**  
 `Unit 2: Simple Programs, Lesson 4: Functions`
 
-This file contains all (or most) of the earliest material regarding **recursions** presented in the
-course.
+This file contains all (or most) of the material regarding **recursions** presented in the course.
 
 The basis of this material is *copied and pasted* from class slides and transcripts, but I have
 arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
@@ -14,7 +13,7 @@ you want to look at it. No claims are made and no guarantees are given; these ar
 personal notes and are arranged and edited in a way that is convenient for me.
 
 Note: the course is organized in `units` that contain `lessons` that contain videos and exercises. I
-refer to the videos as "`sessions`" (as in class sessions) and give them their own numbering.
+refer to the videos as "`sessions`" (as in *class sessions*) and give them their own numbering.
 (The website numbers everything sequentially, but that doesn't make clear that the exercises are
 related to the video.)
 
@@ -198,10 +197,11 @@ n+1
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 
-### Example Of Induction
+### Example: Using Induction To Prove A Statement Is True
 
 [Slide 50]
 
+Prove that the following statement holds for all `n >= 0`:  
 `0 + 1 + 2 + 3 + … + n = ( n(n+1) ) / 2`
 
 #### Proof
@@ -271,12 +271,8 @@ The Towers of Hanoi is a game where there are 3 pillars and, on one pillar, ther
 disks of different sizes, with the largest disk at the bottom and the smallest disk at the top. 
 The goal of the game is to move the disk stack to another pillar following these rules:
 
-```
-
 * Movement: can only move one disk at a time
 * Arrangement: a larger disk can never cover up a small disk
-
-```
 
 **Strategy for two disks**:
 

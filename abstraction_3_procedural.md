@@ -39,12 +39,12 @@ that must be reimplemented is large, making a modification will still be a lot o
 
 <!-- As will be discussed later, the workload can be reduced by identifying potential modifications while designing the program and then trying to limit their effects to a small number of abstractions. For example, if the effects of machine dependencies can be limited to just a few modules, the result will be software that can be transported readily to another machine. -->
 
-Modifiability leads to a sensible method of tuning performance. Programmers are notoriously bad at
+Modifiability leads to a sensible method of tuning performance. **Programmers are notoriously bad at
 predicting where time will actually be spent in a complex system, probably because it is difficult
 to anticipate where bottlenecks will arise. Since it is unwise to invest effort in inventing
 structures that avoid nonexistent bottlenecks, a better method is to start with a simple set of
 abstractions, run the system to discover where the bottlenecks are, and then reimplement the
-abstractions that are bottlenecks.
+abstractions that are bottlenecks.**
 
 ## Specifications of Procedural Abstractions
 
@@ -74,9 +74,9 @@ in the order shown, although the `requires` and `modifies` clauses are optional.
 
 ### Specification template for procedural abstractions.
 
-```
+```CLU
 
-Figure 3.2 Specification template for procedural abstractions.
+% Figure 3.2 Specification template for procedural abstractions.
 
 pname = proc (...) returns (...)
     requires % this clause states any constraints on use
@@ -120,9 +120,9 @@ in half, then sort each half and merge the results:
 Figure 3.5 shows the specifications of `sort` and the two subsidiary abstractions. Note that `sort`
 does not modify its input array and that both `merge` and `merge_sort` are partial. 
 
-```
+```CLU
 
-Figure 3.5 Specification for merge sort.
+% Figure 3.5 Specification for merge sort.
 
 % sort the first half of the array
 % sort the second half of the array
@@ -158,9 +158,9 @@ and is seen as a step in the development of object-oriented programming.
 
 <!-- page 65 -->
 
-```
+```CLU
 
-Figure 3.6 An implementation of merge sort.
+% Figure 3.6 An implementation of merge sort.
 
 ai = array [int]
 

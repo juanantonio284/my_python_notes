@@ -1,14 +1,18 @@
 # Notes on Abstraction
 
-Source:
+> We all know that the only mental tool by means of which a very finite piece of reasoning can cover
+  a myriad cases is called "abstraction"; as a result the effective exploitation of his powers of
+  abstraction must be regarded as one of the most vital activities of a competent programmer. In
+  this connection it might be worth-while to point out that the purpose of abstracting is not to be
+  vague, but to create a new semantic level in which one can be absolutely precise. 
+>
+> ... I tend to the assumption —up till now not disproved by experience— that by suitable
+  application of our powers of abstraction, the intellectual effort needed to conceive or to
+  understand a program need not grow more than proportional to program length. 
 
-* Guttag, John, *Introduction to computation and programming using Python: with application to
-  understanding data*  (Second edition. ISBN 9780262529624)
-   
-* Guttag, John, *Introduction to computation and programming using Python: with application to
-  computational modeling and understanding data* (Third edition. ISBN 9780262542364)
+— Edsger W. Dijkstra [*The Humble Programmer (ACM Turing Lecture 1972 EWD340)*][]
 
-* Edsger W. Dijkstra, *The Humble Programmer* (ACM Turing Lecture 1972 EWD340)
+[*The Humble Programmer (ACM Turing Lecture 1972 EWD340)*]: https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html
 
 ## Function Definitions
 
@@ -101,17 +105,12 @@ even decades later, we have a great leg up in maintaining that software.
 
 <!-- continue at bottom of page 201 -->
 
-## Edsger Dijkstra
+## Bibliography
 
-[ Some of his comments on abstraction from
- https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html ]
+* Guttag, John, *Introduction to computation and programming using Python: with application to
+  understanding data*  (Second edition. ISBN 9780262529624)
+   
+* Guttag, John, *Introduction to computation and programming using Python: with application to
+  computational modeling and understanding data* (Third edition. ISBN 9780262542364)
 
-> We all know that the only mental tool by means of which a very finite piece of reasoning can cover
-  a myriad cases is called "abstraction"; as a result the effective exploitation of his powers of
-  abstraction must be regarded as one of the most vital activities of a competent programmer. In
-  this connection it might be worth-while to point out that the purpose of abstracting is not to be
-  vague, but to create a new semantic level in which one can be absolutely precise. 
-
-> ... I tend to the assumption —up till now not disproved by experience— that by suitable
-  application of our powers of abstraction, the intellectual effort needed to conceive or to
-  understand a program need not grow more than proportional to program length. 
+* Edsger W. Dijkstra, *The Humble Programmer* (ACM Turing Lecture 1972 EWD340)
