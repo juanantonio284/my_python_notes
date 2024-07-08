@@ -6,7 +6,7 @@ Most of the material in this repository is taken from the MITx course
 
 The basis of this material is *copied and pasted* from class slides and transcripts, but I have
 arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
-to understand. In other words: the contents of this file are either *very different* to the
+to understand. In other words: the contents of these files are either *very different* to the
 original class material or *essentially the same and don't provide anything new*, depending on how
 you want to look at it. No claims are made and no guarantees are given; these are simply my
 personal notes and they are arranged and edited in a way that is convenient for me.
@@ -19,3 +19,31 @@ Note: the course is organized in `units` that contain `lessons` that contain vid
 refer to the videos as "`sessions`" (as in class sessions) and give them their own numbering.
 (The website numbers everything sequentially, but that doesn't make clear that the exercises are
 related to the video.)
+
+## Contents
+
+* `recursions_unit_2_lesson_4.md`: contains all (or most) of the material regarding recursions
+  presented in the course. [I find recursions interesting and wanted to have all the material in
+  one place.]
+
+* `basic_examples_recursion.md`
+
+### Abstraction
+
+I found the following quote by Edsger Dijkstra fascinating: 
+
+> " ... the effective exploitation of his powers of abstraction must be regarded as one of the most
+    vital activities of a competent programmer. In this connection it might be worth-while to
+    point out that the purpose of abstracting is not to be vague, but to create a new semantic
+    level in which one can be absolutely precise."
+
+So I dug into the subject a little more, starting with the notes from the class. 
+
+* `abstraction.md`: talks in a more practical sense about function definitions and touches on the
+  basic concepts of decomposition and abstraction
+
+* `abstraction_2.md`: this comes from an old book by Barbara Liskov and John Guttag in which they
+  talk about the theoretical need for decomposition and abstraction and show its application in the
+  CLU language (a precursor to many modern programming languages)
+
+* `abstraction_3_procedural.md`: goes deeper into the theory seen in file 2
