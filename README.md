@@ -6,10 +6,10 @@ Most of the material in this repository is taken from the MITx course
 
 The basis of this material is *copied and pasted* from class slides and transcripts, but I have
 arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
-to understand. In other words: the contents of these files are either *very different* to the
+to understand. In other words, the contents of these files are either *very different* to the
 original class material or *essentially the same and don't provide anything new*, depending on how
-you want to look at it. No claims are made and no guarantees are given; these are simply my
-personal notes and they are arranged and edited in a way that is convenient for me.
+you want to look at it.  Simply put: these are simply my personal notes and they are arranged and
+edited in a way that is convenient for me; no claims are made and no guarantees are given.
 
 If you want the complete course material this is not a good place to look. By a standard of "having
 all the notes to help me can pass the class" this repo would be disorganized, incomplete in some
@@ -37,13 +37,13 @@ I found the following quote by Edsger Dijkstra fascinating:
     point out that the purpose of abstracting is not to be vague, but to create a new semantic
     level in which one can be absolutely precise."
 
-So I dug into the subject a little more, starting with the notes from the class. 
+so I dug into the subject a little more, starting with notes from the class. 
 
-* `abstraction.md`: talks in a more practical sense about function definitions and touches on the
+* `abstraction.md`: introductory notes, with a more practical sense, on function definitions and the
   basic concepts of decomposition and abstraction
 
-* `abstraction_2.md`: this comes from an old book by Barbara Liskov and John Guttag in which they
-  talk about the theoretical need for decomposition and abstraction and show its application in the
+* `abstraction_2.md`: more theoretical notes from an old book by Barbara Liskov and John Guttag in
+  which they talk about the need for decomposition and abstraction and show its application in the
   CLU language (a precursor to many modern programming languages)
 
 * `abstraction_3_procedural.md`: goes deeper into the theory seen in file 2
