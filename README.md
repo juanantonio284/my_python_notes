@@ -8,7 +8,7 @@ The basis of this material is *copied and pasted* from class slides and transcri
 arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
 to understand. In other words, the contents of these files are either *very different* to the
 original class material or *essentially the same and don't provide anything new*, depending on how
-you want to look at it.  Simply put: these are simply my personal notes and they are arranged and
+you want to look at it. Simply put: these are simply my personal notes and they are arranged and
 edited in a way that is convenient for me; no claims are made and no guarantees are given.
 
 If you want the complete course material this is not a good place to look. By a standard of "having
@@ -16,19 +16,24 @@ all the notes to help me can pass the class" this repo would be disorganized, in
 ways, and too expansive in other ways.
 
 Note: the course is organized in `units` that contain `lessons` that contain videos and exercises. I
-refer to the videos as "`sessions`" (as in class sessions) and give them their own numbering.
+refer to the videos as "`sessions`" (as in *class sessions*) and give them their own numbering.
 (The website numbers everything sequentially, but that doesn't make clear that the exercises are
 related to the video.)
 
 ## Contents
 
+### recursions
+
+* `basic_examples_recursion.md`
+
 * `recursions_unit_2_lesson_4.md`: contains all (or most) of the material regarding recursions
   presented in the course. [I find recursions interesting and wanted to have all the material in
   one place.]
 
-* `basic_examples_recursion.md`
+  - `recurs_u_2_l_4_CODE_part_1.py` (and part 2) have the same code as the markdown but are ready to
+    use in python
 
-### Abstraction
+### abstraction
 
 I found the following quote by Edsger Dijkstra fascinating: 
 
