@@ -22,6 +22,8 @@ related to the video.)
 
 ## Contents
 
+* `oop_basic_concepts.md`: basic concepts of Object-Oriented Programming (e.g. methods, classes)
+
 ### recursions
 
 * `basic_examples_recursion.md`
@@ -30,8 +32,8 @@ related to the video.)
   presented in the course. [I find recursions interesting and wanted to have all the material in
   one place.]
 
-  - `recurs_u_2_l_4_CODE_part_1.py` (and part 2) have the same code as the markdown but are ready to
-    use in python
+  - `recursions_u2l4_CODE_part_1.py` (and `...part 2`) have the same code as the markdown but are
+    ready to use in python
 
 ### abstraction
 
