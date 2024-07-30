@@ -86,10 +86,13 @@ at a mechanism that allows programmers to define new types.
 
 <!-- section 10.1 -->
 
-An **abstract data type** is a set of objects and the operations on those objects. These are bound
-together so that programmers can pass an object from one part of a program to another, and in doing
-so provide access not only to the data attributes of the object but also to operations that make it
-easy to manipulate that data. 
+An **abstract data type** ["abstract" qualifies the main noun "data type"] is a set of objects and
+the operations on those objects. Examples of data types are: integers, lists, floats, strings, and
+dictionaries
+
+(Objects and operations are bound together so that programmers can pass an object from one part of a
+program to another, and in doing so provide access not only to the data attributes of the object
+but also to operations that make it easy to manipulate that data.)
 
 The specifications of those operations define an **interface** between the abstract data type and
 the rest of the program. The interface defines the behavior of the operations—what they do, but not
@@ -97,18 +100,18 @@ how they do it. The interface thus provides an **abstraction barrier** that isol
 the program from the data structures, algorithms, and code involved in providing a realization of
 the type abstraction.
 
-Abstraction suppresses detail. The key is to suppress the appropriate details. This is where data
+Abstraction suppresses detail. The key is to suppress the appropriate details; this is where data
 abstraction hits the mark. We can create domain-specific types that provide a convenient
 abstraction. Ideally, these types capture concepts that will be relevant over the lifetime of a
-program. If we start the programming process by devising types that will be relevant months and
-even decades later, we have a great leg up in maintaining that software.
+program. **If we start the programming process by devising types that will be relevant months and
+even decades later, we have a great leg up in maintaining that software**.
 
 <!-- continue at bottom of page 201 -->
 
-## Bibliography
+## References
 
 * Guttag, John, *Introduction to computation and programming using Python: with application to
-  understanding data*  (Second edition. ISBN 9780262529624)
+  understanding data* (Second edition. ISBN 9780262529624)
    
 * Guttag, John, *Introduction to computation and programming using Python: with application to
   computational modeling and understanding data* (Third edition. ISBN 9780262542364)

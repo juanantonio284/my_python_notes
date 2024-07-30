@@ -6,14 +6,22 @@ https://docs.python.org/3/library/venv.html#module-venv
 
 ```Bash
 
-# Install venv module
-sudo apt install python3-venv # only do this once
+# INSTALL venv module (only do this once)
+sudo apt install python3-venv
 
-# Create virtual environment in the local home folder
-python3 -m venv ~/.virtualenvs # do this whenever you want to create a new one
+# CREATE A NEW VIRTUAL ENVIRONMENT
+python3 -m venv ~/.virtualenvs # Create a new virtual environment
+# in this example, the venv will be made in a hidden folder (.) named "virtualenvs"
+# this venv is around 17 MB in size before any packages are installed
 
-# Start the virtual environment in the terminal
-source ~/.virtualenvs/bin/activate
+# ACTIVATE a previously created virtual environment in the terminal
+source ~/.virtualenvs/bin/activate # Activate the virtual environment in the terminal
+# (This sources the "activate" script in the bin folder)
+# The terminal will now show something like:    (.virtualenvs) username@username:~$
+
+# INSTALL NEEDED PYTHON PACKAGES 
+# e.g.
+python3 -m pip install django
 
 ```
 
