@@ -161,3 +161,7 @@ cython_debug/
 
 # Sublime Workspace Files
 *.sublime-workspace
+
+*.html
+
+.vscode
