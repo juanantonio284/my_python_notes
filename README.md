@@ -28,12 +28,18 @@ related to the video.)
 
 * `basic_examples_recursion.md`
 
-* `recursions_unit_2_lesson_4.md`: contains all (or most) of the material regarding recursions
+* `recursions_unit_2_lesson_4.md` contains all (or most) of the material regarding recursions
   presented in the course. [I find recursions interesting and wanted to have all the material in
   one place.]
 
   - `recursions_u2l4_CODE_part_1.py` (and `...part 2`) have the same code as the markdown but are
     ready to use in python
+
+* `genSubsets_explanation.md` contains a recursion to generate subsets from a list. This was seen in
+  one of the latter lessons of the course and presented mostly to talk about complexity of the
+  code (exponential running time as size of the input gets larger). The explanation in this page is
+  much more detailed than anything that was given. There is a `.py` file with the code ready for
+  running.
 
 ### abstraction
 
