@@ -17,10 +17,14 @@ empty list inside.
 element in the list. In other words, to find the subsets for a smaller list `L2` and, later, create
 more subsets that include the element that was taken off. 
 
-2. So, I recursively call the function `smaller = genSubsets( L[ :-1] )`; and in this call I pass as
-input a new list `L2` that contains *everything but* the last element of `L1`. The result of this
-call is `smaller`, which is a list of all possible subsets of `L1`, except those that would include
-the last element.
+2. So, the function is called recursively `smaller = genSubsets( L[ :-1] )`; and, in this call, the
+input passed is a new list `L2` that contains *everything but* the last element of `L1`. The result
+of this call is assigned to `smaller`, and is a list of all possible subsets of `L1`, except those
+that would include the last element. 
+
+    - The mind trick here is that instead of looking at `smaller` as all the subsets of `L2`
+      (which it is), you look at it as all the subsets of `L1`, except those that would include the
+      last element
 
 ```Python
 
@@ -38,25 +42,28 @@ def genSubsets(L):
                      # returning the empty set.
 
     # Recursion
-    smaller = genSubsets( L[ :-1] )  # this calls the function with a list that does not include 
-                                     # the last element and assigns the end result (the return) of 
-                                     # the function to "smaller". 
-                                     # "smaller" is thus a list of lists.
+    smaller = genSubsets( L[ :-1] )  # This calls the function with a list that does not include 
+                                     # the last element of the current list. 
+                                     # The end result (the return) of this call is assigned to 
+                                     # "smaller". ("smaller" is thus a list of lists.)
 
     # The rest of the program
-    extra = L[-1: ]  # extra is a single element, the last of the list that was passed as an 
-                     # argument to THIS call of the function.
-    new = [] # this is created and filled for every separate call of the function
-             # it is where the "new" subsets discovered in this call will be put
+    extra = L[-1: ]  # extra is a single element, the last of the list passed to THIS call.
+    
+    new = [] # This is where the "new" subsets discovered in this call will be put
+             # this is created and filled for every separate call of the function
     
     for small in smaller:
         new.append(small+extra)
-        # the "smaller" used at this point is the smaller that comes from the previous function call
-        # since "smaller" is a list of lists, "small" is a list (don't treat it as some other
-        # type)
+        # the "smaller" used at this point is the smaller that comes from the NEXT function call
+        # (i.e. the one with a smaller list that was completed BEFORE the current call)
+        
+        # since "smaller" is a list of lists, "small" is a list 
+        # (which is to say don't treat it as some other type as that may create an error)
 
-    return smaller+new  # take the "smaller" which came from the last call and add the new 
-                        # sets discovered in this call
+    return smaller+new  # take the "smaller" mentioned above (which uses a list one element 
+                        # smaller than the one in the current call) and add the new sets discovered 
+                        # in this call (which include that "extra" element)
     
 
 # Note that all of the above is within a function. If that function is called recursively,
@@ -93,8 +100,8 @@ subsets found in this call.
 After running this code with debugs[^note_1], for `sample_list = [1,2]` we get the output below,
 which is useful to see how the code works. 
 
-This section presents details one by one, chopping up the output. The *Appendix* section presents
-the whole output as it comes in the terminal.
+This section presents details one by one, chopping up the output. (The appendix section presents the
+whole output as it comes in the terminal.)
 
 ### 1
 
@@ -129,13 +136,13 @@ function start
                  re-calling function with list: []
 function start
          function called with list: []
-         base case, ending function
+                 base case, ending function
          
 ```
 
 ### 2
 
-**After all the recursive calls, and the completion to base case, the rest of the code runs**
+After all the recursive calls, and the completion to base case, the rest of the code runs.
 
 ```Python
 
@@ -151,7 +158,7 @@ function start
 ```
 
 * (i) `extra = L[-1: ]` is a single element, the last of the list that was passed as an argument to
-  THIS call of the function
+  THIS call
 
     - Notice that the function call used this `L[ :-1]`, which means *everything except the last
       element*. This `extra` statement uses this `[-1: ]`, which means *the last element and
@@ -160,9 +167,11 @@ function start
 * (ii) `new` is initialized empty (this is created and filled for every separate call of the
   function)
 
-* (iii) the `smaller` used at this point is the end result of the previous function call, i.e. it is
-  the solution to a smaller problem (the first `smaller` ever seen comes from the base case and is
-  a list with an empty list `[[]]`)
+* (iii) the `smaller` used at this point is the end result of the NEXT function call (i.e. the one
+  with a smaller list that was completed BEFORE the current call). 
+  
+    - `smaller`, as its name suggests, is the solution to a smaller problem (the first `smaller`
+      ever seen comes from the base case and is a list with an empty list `[[]]`)
   
     - the `for` loop iterates over this list and every element it pulls out, `small`, is, in itself,
       a list (the first `small` seen is an empty list `[]` pulled from `[[]]`)
@@ -170,30 +179,31 @@ function start
 * (iv) inside the loop a new subset is created with `small+extra` and appended to `new`
   which—remember—is unique to every call
 
-    - `new` grows with the *new* sets (more than one) found in every iteration of the for loop
+    - `new` grows with the *new* sets (more than one) found in every iteration of the loop
 
-* (v) At the end of the function `new` is added to the current `smaller` (which comes from the
-  previous call) and returned
-
-### 3
+* (v) At the end of the function `new` is added to the working `smaller` and returned. This return
+  is then assigned to the same name `smaller` (overwriting the older one)
 
 ```
 
+--------------------
 After recursive call to function
-         this corresponds to function called with list: [1]  (original list minus the last element)
+         this corresponds to function called with list: [1] (original list minus the last element)
          extra: [1] <-- the last element of this call
-         smaller (from last call): [[]] <-- this is the result of the base case
+         smaller (from next call): [[]] <-- this is the result of the base case
          --------
          inside loop
-                 small: []  <-- this is the empty set inside the smaller above
-                 new: []    <-- this is always initialized empty (different thing from line above)
-                 append (small+extra) to new: [[1]] <-- this is actually: [[],[1]]
-
+                 small: [] <-- this is the empty set inside the smaller above
+                 new: []   <-- this is always initialized empty (different thing from line above)
+                 append (small+extra) to new: [[1]]
+         end of function, return smaller+new: [[], [1]]
+         
+         
 --------------------
 After recursive call to function
          this corresponds to function called with list: [1, 2] (finally getting to original call)
          extra: [2]
-         smaller (from last call): [[], [1]]
+         smaller (from next call): [[], [1]]
          --------
          inside loop
                  small: []
@@ -204,9 +214,12 @@ After recursive call to function
                  small: [1]
                  new: [[2]]
                  append (small+extra) to new: [[2], [1, 2]]
-         
-         
          end of function, return smaller+new: [[], [1], [2], [1, 2]]
+
+
+Note that "next" call refers to the call that was made after this one but was actually completed
+before this one (look further up in the page for the result of the next call, as opposed to looking
+below)
 
 ```
 
@@ -218,6 +231,44 @@ After recursive call to function
 
 ```
 
+>>> genSubsets(sample_list)
+function start
+         function called with list: [1, 2]
+                 re-calling function with list: [1]
+function start
+         function called with list: [1]
+                 re-calling function with list: []
+function start
+         function called with list: []
+                 base case, ending function
+--------------------
+After recursive call to function
+         this corresponds to function called with list: [1]
+         extra: [1]
+         smaller (from next call): [[]]
+         --------
+         inside loop
+                 small: []
+                 new: []
+                 append (small+extra) to new: [[1]]
+         end of function, return smaller+new: [[], [1]]
+--------------------
+After recursive call to function
+         this corresponds to function called with list: [1, 2]
+         extra: [2]
+         smaller (from next call): [[], [1]]
+         --------
+         inside loop
+                 small: []
+                 new: []
+                 append (small+extra) to new: [[2]]
+         --------
+         inside loop
+                 small: [1]
+                 new: [[2]]
+                 append (small+extra) to new: [[2], [1, 2]]
+         end of function, return smaller+new: [[], [1], [2], [1, 2]]
+[[], [1], [2], [1, 2]]
 
 ```
 
