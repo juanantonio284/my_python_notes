@@ -1,26 +1,28 @@
 # A Recursion to Generate Subsets From a List
 
-If I've got a list (say, of the integers 1, 2, 3, 4), I'd like to generate a list of all the subsets
-of that list. 
+I have a list `L` with various elements, i.e. a set, and I'd like to find all possible subsets. The
+result will, itself, be a list (each subset is also expressed as a list). 
 
-The empty list will, itself, be a subset. The list that only contains 1 would be a subset (in fact,
-every list that contains a single number would be a subset). Other subsets would be lists of
-(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), etc.
+If, for example, I've got a list of the integers 1, 2, 3, and 4: 
+
+The empty list is counted as a subset. The list that only contains the number 1 is a subset(in fact,
+every list that contains a single number would be a subset). Other subsets would be lists of 
+` (1, 2)`, `(1, 3)`, `(1, 4)`, `(2, 3)`, `(2, 4)`, etc.
+
+**The strategy** to generate all of the subsets of a list `L1` is to first generate all the subsets
+for a list that is smaller by one element (call this `L2`) and, later, add more subsets that include
+the element that was taken off. 
 
 ## Code and explanation
 
-1. `if len(L) == 0: return [[]]` my base case is when there is nothing in the list. But I still get
-all possible subsets from it (i.e. just one empty list), and return the result: a list with an
-empty list inside. 
+1. My base case is when there is nothing in the list. But I still get all possible subsets from it
+(i.e. just one empty list), and return the result—a list with an empty list inside. 
+`if len(L) == 0: return [[]]`
 
-**The strategy is** to generate all of the subsets of a list `L1` except those that include the last
-element in the list. In other words, to find the subsets for a smaller list `L2` and, later, create
-more subsets that include the element that was taken off. 
-
-2. So, the function is called recursively `smaller = genSubsets( L[ :-1] )`; and, in this call, the
-input passed is a new list `L2` that contains *everything but* the last element of `L1`. The result
-of this call is assigned to `smaller`, and is a list of all possible subsets of `L1`, except those
-that would include the last element. 
+2. I re-call the function `smaller = genSubsets( L[ :-1] )` and, in this call, the input passed is a
+new list `L2` that contains *everything but* the last element of `L1`. The result of this call is
+assigned to `smaller`, and is a list of all possible subsets of `L1`, except those that would
+include the last element. 
 
     - The mind trick here is that instead of looking at `smaller` as all the subsets of `L2`
       (which it is), you look at it as all the subsets of `L1`, except those that would include the
@@ -48,8 +50,8 @@ def genSubsets(L):
                                      # "smaller". ("smaller" is thus a list of lists.)
 
     # The rest of the program
-    extra = L[-1: ]  # extra is a single element, the last of the list passed to THIS call.
-    
+    extra = L[-1: ]  # extra is a single element, the last of the list passed to THIS call, and
+                     # will be used to create the remaining subsets.
     new = [] # This is where the "new" subsets discovered in this call will be put
              # this is created and filled for every separate call of the function
     
@@ -65,20 +67,10 @@ def genSubsets(L):
                         # smaller than the one in the current call) and add the new sets discovered 
                         # in this call (which include that "extra" element)
     
-
-# Note that all of the above is within a function. If that function is called recursively,
-# everything will happen over and over, including the creation of all the lists. Indeed, it seems
-# this takes a lot of computing power.
-
-# assuming append takes constant time
-
-# total time includes (time to solve smaller problem) plus (time needed to make a copy of all
-# elements in the smaller problem)
-
 ```
 
 3. `extra = L[-1: ]` is a single element, the last of the list that was passed as an argument to
-THIS call of the function. 
+THIS call of the function, and will be used to create the remaining subsets.
 
     * Notice that the function call used this `L[ :-1]`, which means *everything except the last
       element*. This `extra` statement uses this `[-1: ]`, which means *the last element and
@@ -87,11 +79,11 @@ THIS call of the function.
 4. `new = []` initializes a list where the "new" subsets discovered in this call will be put.
 
 5. `for small in smaller:` iterates through `smaller`, creating new subsets that add the last
-element (the one in `extra`). Each new subset will be made with `small+extra`, and these will be
-appended to the `new` list.
+element (the one in `extra`). Each new subset is the union of small and extra (`small+extra`), and
+will be appended to the `new` list.
 
-6. Finally, the function returns `smaller` (the result from the previous call) attached to the new
-subsets found in this call.
+6. Finally, the function returns `smaller` (the result from the previous call) attached to the `new`
+list created in this call.
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
