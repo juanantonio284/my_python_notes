@@ -59,4 +59,12 @@ so I dug into the subject a little more, starting with notes from the class.
   which they talk about the need for decomposition and abstraction and show its application in the
   CLU language (a precursor to many modern programming languages)
 
-* `abstraction_3_procedural.md`: goes deeper into the theory seen in file 2
+* `abstraction_3_procedural.md`: deeper into the theory seen in file 2
+
+### complexity
+
+* `1_asymp_notation.md`: a description of how asymptotic notation works and what "Big O" and "Big
+  Theta" notations represent
+  
+* `2_merge_sort.md`: a description of how the *merge sort* algorithm works and an analysis of its
+  complexity
