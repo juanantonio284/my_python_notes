@@ -1,8 +1,6 @@
 # Creation of virtual environments with `venv`
 
-https://docs.python.org/3/library/venv.html#module-venv
-
-**tldr**
+## TLDR
 
 ```Bash
 
@@ -25,8 +23,11 @@ python3 -m pip install django
 
 ```
 
-————————————
-<!-- ≈≈≈≈≈≈ 12 character line (EM Rule —) ≈≈≈≈ -->
+## `venv`
+
+[original_page][venv]
+
+[venv]: https://docs.python.org/3/library/venv.html#module-venv
 
 The `venv` module supports creating lightweight "virtual environments", each with their own
 independent set of Python packages installed in their site directories. A virtual environment is
@@ -174,3 +175,16 @@ If for any reason you need to move the environment to a new location, you should
 desired location and delete the one at the old location. If you move an environment because you
 moved a parent directory of it, you should recreate the environment in its new location. Otherwise,
 software installed into the environment may not work as expected. 
+
+### Change the python interpreter that loads in the vscode terminal
+
+https://docs.posit.co/ide/server-pro/user/vs-code/guide/python-environments.html#set-the-default-project-interpreter
+
+Now you can configure VS Code always to use this virtual environment when working on this project.
+Open the Command Palette and type "Python: Select Interpreter". VS Code should automatically
+recommend the virtual environment you just created. Select it using the arrow keys and press enter.
+If VS Code does not automatically detect or recommend the new virtual environment, you can manually
+enter the path: "`./venv/bin/python`".
+
+Alternatively, you can select the default project interpreter by clicking on the Python section of
+the Status Bar located at the bottom right of the window.
