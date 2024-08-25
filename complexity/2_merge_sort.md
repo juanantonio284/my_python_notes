@@ -1,22 +1,22 @@
-# Merge Sort
+# Merge sort
 <!-- pdf 265 -->
 
+A *divide-and-conquer* algorithm can do a lot better than quadratic time. 
+
 The basic idea behind a *divide-and-conquer* algorithm is to combine solutions of simpler instances
-of the original problem; this type of algorithm can do a lot better than quadratic time.
+of the original problem and, in general, this type of algorithm is characterized by: 
 
-In general, **a divide-and-conquer algorithm is characterized by**: 
-
-* A threshold *input size*, below which the problem is not subdivided (the threshold is sometimes
-  called the recursive base)
+* A threshold *input size* below which the problem is not subdivided (the threshold is sometimes
+  called the *recursive base*)
 * The size and number of sub-instances into which an instance is split
 * The algorithm used to combine sub-solutions
 
-**Merge sort** is a prototypical divide-and-conquer algorithm and, like many of these, it is most
-  easily described recursively:
+**Merge sort** is a prototypical divide-and-conquer algorithm and, like many of these algorithms, it
+is most easily described recursively:
 
 1. If the list is of length 0 or 1, it is already sorted.
-2. If the list has more than one element, split the list into two lists, and use *merge sort* to sort
-each of them.
+2. If the list has more than one element, split the list into two lists, and use *merge sort* to
+sort each of them.
 3. Merge the results.
 
 Merge sort was invented in 1945 by John von Neumann, who made a key observation that *two sorted
@@ -55,9 +55,12 @@ of elements in the list.)
 
 Therefore, merging two sorted lists is linear in the length of the lists, order `θ( len(L) )`.
 
-### An implementation of the merge sort algorithm
 
-The figure below contains an implementation of the merge sort algorithm.
+<!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
+## An implementation of the merge sort algorithm
+
+Our implementation of the merge sort algorithm (`merge_sort`) makes use of another function,
+`merge`.
 
 ```Python
 
@@ -66,7 +69,7 @@ def merge(left, right, compare):
     
     """
     left and right are sorted lists. 
-    compare defines an ordering on the elements x < y by default (but can be switched)
+    compare defines an ordering on the elements x < y by default (but can be switched to x > y)
     
     Returns a new sorted (by compare) list containing the same elements as (left + right) would
     contain.
@@ -95,30 +98,42 @@ def merge(left, right, compare):
 
 ```
 
-Notice that we have made the comparison operator, `compare` a parameter of the `merge_sort` function
-and written a lambda expression[^lambda_exp] to supply a default value 
-(a `True` or a `False` when `x<y`).
-
-
 ```Python
 
-def mergeSort(L, compare = lambda x, y: x < y):
+def merge_sort(L, compare = lambda x, y: x < y):
     
     """
     Assumes L is a list, compare defines an ordering on elements of L.
     Returns a new sorted list with the same elements as L
     """
     
-    if len(L) < 2:
+    if len(L) < 2: # base case
         return L[:]
     
     else:
         middle = len(L)//2
-        left = mergeSort(L[:middle], compare)
-        right = mergeSort(L[middle:], compare)
-        return merge(left, right, compare) # notice that it calls the merge function!
+        left = merge_sort(L[:middle], compare)
+        right = merge_sort(L[middle:], compare)
+        return merge(left, right, compare) # notice that this line calls the merge function
+
+# Given a list L:
+# * If there are 0 or 1 elements (i.e. len(L) < 2), return a copy of the list
+# * Else, divide the list in half and recursively call the function for the left and for the 
+#   right side of the list
 
 ```
+
+Note the difference: 
+
+* In the `merge` function, the `compare` parameter is passed a value (a `True` or a `False`)
+
+* In the `merge_sort` function, the `compare` parameter is passed an operation (`x<y`) which returns
+  a value
+
+Thus in the `merge_sort` function there is not a default value passed (i.e. a `True` or a `False`),
+but there is a default operation passed (`x<y`). To pass an operation to a parameter we use
+a *lambda* expression[^lambda_exp]; the user could pass his own desired operation by changing this
+expression, e.g. `merge_sort(L, lambda x, y: x > y)`.
 
 *Sample usage*: 
 
@@ -139,17 +154,20 @@ print( merge_sort(L, lambda x, y: x > y) ) # this changes the default value for 
 
 Let's analyze the complexity of `merge_sort`. 
 
-* We saw above that the time complexity of `merge` is order `θ( len(L) )`
+* At each level of recursion the total number of elements to be merged is `len(L)` (and as we saw
+  above, the time complexity of `merge` is order `θ( len(L) )`)
 
-* At each level of recursion the total number of elements to be merged is `len(L)`. Therefore, the
-  time complexity of `merge_sort` is order `θ( len(L) )` multiplied by `n`, the number of levels of
-  recursion, i.e. however many times the `merge` function is called
+* Therefore, the time complexity of `merge_sort` is order `θ( len(L) )` multiplied by the number `n`
+  of levels of recursion, i.e. however many times the `merge` function is called
 
-    - Since `merge_sort` divides the list in half, each time, we know that the number of levels of
-      recursion is order  
-      `θ( log(len(L)) )`
+    - Since the function divides the list in half, each time, we know that the number of
+      levels of recursion `n` is of logarithmic order: `θ( log(len(L)) )`
+      
+    - Thus we take `θ( len(L) )` and multiply by `θ( log(len(L)) )`, which gives 
+    `θ( len(L) * log(len(L)) )`
 
-    - Therefore, the time complexity of `merge_sort` is `θ( n*log(n) )`—where `n` is `len(L)`
+    - And, substituting `len(L)` with `n`, we have that the time complexity of `merge_sort` is 
+    `θ( n*log(n) )`
 
 This is a lot better than selection sort's `θ( len(L)^2)`. 
 
@@ -198,10 +216,10 @@ These functions are then passed as arguments in a call to `merge_sort`.
 
 L = ['Tom Brady', 'Eric Grimson', 'Gisele Bundchen']
 
-newL = mergeSort(L, lastNameFirstName)
+newL = merge_sort(L, lastNameFirstName)
 print('Sorted by last name =', newL)
 
-newL = mergeSort(L, firstNameLastName)
+newL = merge_sort(L, firstNameLastName)
 print('Sorted by first name =', newL)
 
 ```
