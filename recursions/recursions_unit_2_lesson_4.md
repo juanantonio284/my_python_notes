@@ -1,27 +1,20 @@
-# Recursions 1 (Unit 2, Lesson 4)
+# Recursions 1 (Unit 2, Lecture 4)
 
 From the MITx course **Introduction to Computer Science and Programming Using Python (6.00.1x)**  
-`Unit 2: Simple Programs, Lesson 4: Functions`
+`Unit 2: Simple Programs, Lecture 4: Functions`
 
-This file contains all (or most) of the material regarding **recursions** presented in the course.
+This file contains all (or most) of the introductory material regarding **recursions** presented in
+the course.
 
-The basis of this material is *copied and pasted* from class slides and transcripts, but I have
-arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
-to understand. In other words, the contents of these files are either *very different* to the
-original class material or *essentially the same and don't provide anything new*, depending on how
-you want to look at it. Simply put: these are simply my personal notes and they are arranged and
-edited in a way that is convenient for me; no claims are made and no guarantees are given.
+Note: the course is organized in `units` that contain `lectures` that contain videos and exercises.
+I refer to the videos as "`segments`" and give them their own numbering. (The website numbers
+everything sequentially, but that doesn't make clear that the exercises are related to the video.)
 
-Note: the course is organized in `units` that contain `lessons` that contain videos and exercises. I
-refer to the videos as "`sessions`" (as in *class sessions*) and give them their own numbering.
-(The website numbers everything sequentially, but that doesn't make clear that the exercises are
-related to the video.)
-
-## Session 6
+## Segment 6
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 41
+# unit 2, lecture 4, segment 6, slide 41
 
 # Multiplication (iterative solution)
 
@@ -41,7 +34,7 @@ def mult_iter(a, b):
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 42
+# unit 2, lecture 4, segment 6, slide 42
 
 # Multiplication (recursive solution)
 
@@ -62,7 +55,7 @@ def mult(a, b):
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 44
+# unit 2, lecture 4, segment 6, slide 44
 
 # Factorial
 
@@ -80,7 +73,7 @@ def fact(n):
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 46, panel 1
+# unit 2, lecture 4, segment 6, slide 46, panel 1
 
 # Factorial (iterative solution)
 
@@ -97,7 +90,7 @@ def factorial_iter(n):
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 46, panel 2
+# unit 2, lecture 4, segment 6, slide 46, panel 2
 # same as slide 44
 
 # Factorial (recursive solution)
@@ -117,13 +110,13 @@ def factorial(n):
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 
-### Session 6 exercises 
+### Segment 6 exercises 
 
-#### iterPower and recurPower
+#### `iterPower` and `recurPower`
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
+# unit 2, lecture 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
 # 17. Exercise: iterPower
 # given answer
 
@@ -144,7 +137,7 @@ def iterPower(base, exp):
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
+# unit 2, lecture 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
 # 17. Exercise: iterPower
 # another answer
 
@@ -161,7 +154,7 @@ def iterPower(base, exp):
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
+# unit 2, lecture 4, exercise which follows L4_S6--1_iteration_vs_recursion.md
 # 18. Exercise: recurPower
 
 def recurPower(base, exp):
@@ -182,59 +175,61 @@ def recurPower(base, exp):
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
-## Session 7
+## Segment 7
 
 ### Mathematical Induction
 
 [Slide 49]
 
-To prove a statement indexed on integers is true for all values of n:
+To prove that a statement indexed on integers is **true for all values of n**: 
 
-1. Prove it is true when n is smallest value (e.g. n = 0 or n = 1)
-
-2. Then prove that if it is true for an arbitrary value of n, one can show that it must be true for
-n+1
+1. Prove it is true when `n` has its smallest value (e.g. `n = 0` or `n = 1`)
+2. Then prove that *if* true for an arbitrary value of n, it is also true for `n+1`
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
+### Example
 
-### Example: Using Induction To Prove A Statement Is True
+**Using induction to prove a statement is true**
 
 [Slide 50]
 
 Prove that the following statement holds for all `n >= 0`:  
-`0 + 1 + 2 + 3 + … + n = ( n(n+1) ) / 2`
+`0 + 1 + 2 + 3 + … + n = ( n*(n+1) ) / 2`
 
 #### Proof
 
-1. Prove it is true when n is smallest value (e.g. n = 0 or n = 1)
+1. Prove it is true when `n` has its smallest value (i.e. `n = 0` )
 
-    * If n = 0, then the left-hand side of the equation is 0 and the RHS is also `0*1/2 = 0`, so the
-      first requirement for an induction is true
+    * If `n = 0` then the left-hand side of the equation is 0, and the RHS is also `0*1/2 = 0`; thus
+      the first requirement for an induction is true
 
-2. Then prove that if it is true for an arbitrary value of n, one can show that it must be true for
-n+1
+2. Then prove that *if* true for an arbitrary value of n, it is also true for `n+1`
 
-    * Assume true for some k, then you need to show that 
-    `0 + 1 + 2 + … + k + (k+1) = ((k+1)(k+2))/2`
-        
-        - LHS reduces to `k(k+1)/2 + (k+1)` by the assumption that this property holds for problem
-          of size k
-        
-            - This becomes, by algebra, `( (k+1)(k+2) )/2`
+    We are looking to prove that `0 + 1 + 2 + … + k + (k+1) = ( (k+1)*(k+2) )/2`
+    
+    * If we assume the original statement is true for some `k`, the LHS reduces to 
+      `k(k+1)/2 + (k+1)` and this becomes, by algebra, `( (k+1)(k+2) )/2`, which proves that it also 
+      holds for `k+1`
 
-**Having proved 1. and 2. the expression thus holds for all n >= 0 [QED]**
+**Having proved 1 and 2, we prove that the expression holds for all n >= 0**[QED]
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 
 ### Relevance of mathematical induction to code
 
-[Slide 51, Original title: "RELEVANCE TO CODE?"]
+The same logic applies for the code below:
 
-* Same logic applies
+* Base case, we can show that `mult` must return correct answer
+
+* For recursive case, we can assume that `mult` correctly returns an answer for problems of size
+  smaller than b, then by the addition step, it must also return a correct answer for problem of
+  size b
+
+* Thus, by induction, code correctly returns answer
 
 ```Python
 
-# unit 2, lesson 4, session 6, slide 42
+# unit 2, lecture 4, segment 6, slide 42
 
 # Multiplication (recursive solution)
 
@@ -253,17 +248,9 @@ def mult(a, b):
 
 ```
 
-* Base case, we can show that `mult` must return correct answer
-
-* For recursive case, we can assume that `mult` correctly returns an answer for problems of size
-  smaller than b, then by the addition step, it must also return a correct answer for problem of
-  size b
-
-* Thus, by induction, code correctly returns answer
-
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
-## Session 8
+## Segment 8
 
 ### Towers of Hanoi
 
@@ -314,11 +301,11 @@ The goal of the game is to move the disk stack to another pillar following these
     - `Towers( 1, fr, to, spare )`
     - `Towers( n-1, spare, to, fr )`
 
-### Towers of Hanoi Code
+### Towers of Hanoi code
 
 ```Python
 
-# unit 2, lesson 4, session 8, slide 55
+# unit 2, lecture 4, segment 8, slide 55
 # Towers of Hanoi
 
 # (i)
@@ -387,11 +374,11 @@ Towers( n = n-1, fr = spare, to = to,    spare = fr )
 
 ```
 
-### Towers of Hanoi Code (with comments and debugs)
+### Towers of Hanoi code (with comments and debugs)
 
 ```Python
 
-# unit 2, lesson 4, session 8, slide 55
+# unit 2, lecture 4, segment 8, slide 55
 # Towers of Hanoi (with comments and debugs)
 
 # (i)
@@ -439,13 +426,13 @@ Towers(4, "a", "b", "spare pillar") # each pillar has been named a, b, and c
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 
-## Session 8 Exercises 
+## Segment 8 exercises 
 
-### gcdIter and gcdRecur
+### `gcdIter` and `gcdRecur`
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S8--1_hanoi.md
+# unit 2, lecture 4, exercise which follows L4_S8--1_hanoi.md
 
 # 21. Exercise: gcd iter
 # an iterative function to find the greatest common divisor
@@ -468,7 +455,7 @@ def gcdIter(a, b):
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S8--1_hanoi.md
+# unit 2, lecture 4, exercise which follows L4_S8--1_hanoi.md
 
 # 22. Exercise: gcd recur
 # a recursive function to find the greatest common divisor
@@ -499,11 +486,11 @@ def gcdRecur(a, b):
     - note that the test is if `b == 0` because you don't want to try to calculate `a%0`, as it is
       undefined (division by 0)
 
-#### gcdRecur (with comments and debugs)
+#### `gcdRecur` (with comments and debugs)
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S8--1_hanoi.md
+# unit 2, lecture 4, exercise which follows L4_S8--1_hanoi.md
 
 # 22. Exercise: gcd recur (with comments and debugs)
 # a recursive function to find the greatest common divisor
@@ -624,11 +611,11 @@ inside if: b == 0, return a
 ```
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
-## Session 9
+## Segment 9
 
 ```Python
 
-# unit 2, lesson 4, session 9, slide 70
+# unit 2, lecture 4, segment 9, slide 70
 
 # first fibonacci code
 
@@ -644,13 +631,13 @@ def fib(x):
 ```
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
-## Session 10 - Recursion on Non-numerics
+## Segment 10 - recursion on non-numerics
 
-### original
+### Original
 
 ```Python
 
-# unit 2, lesson 4, session 10, slide 75
+# unit 2, lecture 4, segment 10, slide 75
 
 # recursion on non-numerics
 # check if a string of characters is a palindrome
@@ -675,11 +662,11 @@ def isPalindrome(s):
     
 ```
 
-### commented and explained
+### Commented and explained
 
 ```Python
 
-# unit 2, lesson 4, session 10, slide 75 
+# unit 2, lecture 4, segment 10, slide 75 
 # (commented and explained)
 
 # recursion on non-numerics
@@ -736,11 +723,11 @@ isPalindrome("ABcd")
 
 ```
 
-### with explanatory debugs
+### With debugs
 
 ```Python
 
-# unit 2, lesson 4, session 10, slide 75
+# unit 2, lecture 4, segment 10, slide 75
 # (with comments and debugs)
 
 # recursion on non-numerics
@@ -867,13 +854,13 @@ False
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 
-## Session 10 Exercises 
+## Segment 10 exercises 
 
-### isIn
+### `isIn`
 
 ```Python
 
-# unit 2, lesson 4, exercise which follows L4_S10--1_recursion_non_num.md
+# unit 2, lecture 4, exercise which follows L4_S10--1_recursion_non_num.md
 
 # 25. Exercise: is in
 # a function that checks if a character is inside an alphabetized string
