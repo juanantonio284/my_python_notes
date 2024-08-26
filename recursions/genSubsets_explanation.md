@@ -30,7 +30,7 @@ include the last element.
 
 ```Python
 
-# Unit 6, Lesson 11, Session 3, Slide 41
+# Unit 6, Lecture 11, Segment 3, Slide 41
 # Take a list and generate subset lists from it
 
 def genSubsets(L):

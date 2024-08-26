@@ -15,10 +15,9 @@ If you want the complete course material this is not a good place to look. By a 
 all the notes to help me can pass the class" this repo would be disorganized, incomplete in some
 ways, and too expansive in other ways.
 
-Note: the course is organized in `units` that contain `lessons` that contain videos and exercises. I
-refer to the videos as "`sessions`" (as in *class sessions*) and give them their own numbering.
-(The website numbers everything sequentially, but that doesn't make clear that the exercises are
-related to the video.)
+Note: the course is organized in `units` that contain `lectures` that contain videos and exercises.
+I refer to the videos as "`segments`" and give them their own numbering. (The website numbers
+everything sequentially, but that doesn't make clear that the exercises are related to the video.)
 
 ## Contents
 

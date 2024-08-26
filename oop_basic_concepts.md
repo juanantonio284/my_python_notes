@@ -159,7 +159,6 @@ not be confused with the list *type*.
 ```Python
 
 # textbook page 203
-
 t1 = Toy()
 t2 = Toy()
 
