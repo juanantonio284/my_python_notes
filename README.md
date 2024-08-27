@@ -1,10 +1,10 @@
 # my_python_notes
 Introductory CSCI notes for the Python programming language
 
-Most of the material in this repository is taken from the MITx course 
+Much of the material in this repository is taken from the MITx course 
 **Introduction to Computer Science and Programming Using Python (6.00.1x)**
 
-The basis of this material is *copied and pasted* from class slides and transcripts, but I have
+Much of what's in this repo is *copied and pasted* from class slides and transcripts, but I have
 arranged, re-arranged, explained, re-explained, commented, and changed comments to make it easier
 to understand. In other words, the contents of these files are either *very different* to the
 original class material or *essentially the same and don't provide anything new*, depending on how
@@ -15,21 +15,28 @@ If you want the complete course material this is not a good place to look. By a 
 all the notes to help me can pass the class" this repo would be disorganized, incomplete in some
 ways, and too expansive in other ways.
 
-Note: the course is organized in `units` that contain `lectures` that contain videos and exercises.
-I refer to the videos as "`segments`" and give them their own numbering. (The website numbers
+Note: the course is organized in *units* that contain *lectures* that contain videos and exercises.
+I refer to the videos as "*segments*" and give them their own numbering. (The website numbers
 everything sequentially, but that doesn't make clear that the exercises are related to the video.)
 
 ## Contents
 
 * `oop_basic_concepts.md`: basic concepts of Object-Oriented Programming (e.g. methods, classes)
 
+### language_basics
+
+* `for_loop_examples.md`: the purpose of this document is to give some simple examples of `for`
+  loops and show some of their characteristics in Python. This will hopefully serve to contrast
+  with how `for` loops behave in other languages
+  
+* `string_slicing.md`: an explanation of how slicing works
+
 ### recursions
 
 * `basic_examples_recursion.md`
 
 * `recursions_unit_2_lesson_4.md` contains all (or most) of the material regarding recursions
-  presented in the course. [I find recursions interesting and wanted to have all the material in
-  one place.]
+  presented in the course. 
 
   - `recursions_u2l4_CODE_part_1.py` (and `...part 2`) have the same code as the markdown but are
     ready to use in python
@@ -38,7 +45,7 @@ everything sequentially, but that doesn't make clear that the exercises are rela
   one of the latter lessons of the course and presented mostly to talk about complexity of the
   code (exponential running time as size of the input gets larger). The explanation in this page is
   much more detailed than anything that was given. There is a `.py` file with the code ready for
-  running.
+  running
 
 ### abstraction
 
@@ -62,7 +69,7 @@ so I dug into the subject a little more, starting with notes from the class.
 
 ### complexity
 
-* `1_asymp_notation.md`: a description of how asymptotic notation works and what "Big O" and "Big
+* `1_asymp_notation.md`: a description of how asymptotic notation works, and what "Big O" and "Big
   Theta" notations represent
   
 * `2_merge_sort.md`: a description of how the *merge sort* algorithm works and an analysis of its
