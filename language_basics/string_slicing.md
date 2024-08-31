@@ -8,20 +8,19 @@ A slice is an object usually containing a portion of a sequence.
 
 s = 'Python is Fun!'
 
-s[1:5] # 'ytho'
+s[1:5] # 'ytho' (starts at 1, ends at 4)
 
-s[:5] # 'Pytho'
+s[:5] # 'Pytho' (starts at 0, ends at 4)
 
-s[1:] # 'ython is Fun!'
+s[1:] # 'ython is Fun!' (starts at 1, ends at end of string len(s))
 
-s[:] # 'Python is Fun!'
+s[:] # 'Python is Fun!' (whole string)
 
-s[1:12:2] # 'yhni u'
+s[1:12:2] # 'yhni u' (starts at 1, ends at 11; note blank space is part of string)
 
-s[1:12:3] # 'yoiF'
+s[1:12:3] # 'yoiF' (starts at 1, ends at 11, with a step size of 3)
 
-s[::2] # 'Pto sFn'
-# this is the full string s (from index 0 through 13), with a step size of 2 (every other character)
+s[::2] # 'Pto sFn' (whole string with a step size of 2)
 
 ```
 
@@ -65,6 +64,29 @@ equivalent to the more verbose `'abc'[0:len('abc')]`.
 
 It is also possible to supply a third argument to select a non-contiguous slice of a string. For
 example, the value of the expression `'123456789'[0:8:2]` is the string `'1357'`.
+
+Indexing throws an error if out of range; slicing does not, it just returns nothing:
+
+```Python
+
+for i in range(8):
+    print( "i:", i, " i+4:", i+4, "-->", "abcde"[i: i+4] )
+    # print( "abcde"[i: i+4] )
+
+```
+
+```
+
+i: 0  i+4: 4 --> abcd
+i: 1  i+4: 5 --> bcde
+i: 2  i+4: 6 --> cde
+i: 3  i+4: 7 --> de
+i: 4  i+4: 8 --> e
+i: 5  i+4: 9 --> 
+i: 6  i+4: 10 --> 
+i: 7  i+4: 11 --> 
+
+```
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->

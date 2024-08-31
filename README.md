@@ -21,7 +21,12 @@ everything sequentially, but that doesn't make clear that the exercises are rela
 
 ## Contents
 
+### OOP
+
 * `oop_basic_concepts.md`: basic concepts of Object-Oriented Programming (e.g. methods, classes)
+
+* `intro_graph_problems.md`: a application of OOP—usage of methods, classes, subclasses—to solve
+  some basic graph optimization problems
 
 ### language_basics
 

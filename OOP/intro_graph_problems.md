@@ -452,7 +452,7 @@ children. Each of these new paths is then added to `pathQueue`.
 The function `testSP` (test shortest path) runs all the definitions made so far to, first, build a
 directed graph(see image) and then search for a shortest path between node 0 and node 5.
 
-![]()
+![](https://github.com/juanantonio284/my_python_notes/blob/main/OOP/testSP_sample_graph.png)
 
 ```Python
 
