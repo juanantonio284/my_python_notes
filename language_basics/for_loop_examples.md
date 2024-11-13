@@ -35,9 +35,9 @@ loop pass: 3
 This shows that the loop iterates over the sequence `0, 1, ...`. The [`range` *constructor*][range] 
 is a function used for loops, specifically, and it creates a range *object* (or range *type*):
 
-The advantage of the range type over a regular list or tuple is that a range type (object) will
-always take the same small amount of memory, no matter the size of the range it represents(as it
-only stores the start, stop, and step values and calculates individual items and subranges as
+The advantage of the range *type* over a regular list or tuple is that a range object will always
+take the same small amount of memory, no matter the size of the range it represents (as it only
+stores the `start`, `stop`, and `step` values and calculates individual items and subranges as
 needed).
 
 Function syntax: 
@@ -48,7 +48,7 @@ Function syntax:
 If the start argument is omitted, it defaults to 0.  
 If the step argument is omitted, it defaults to 1.
 
-<!-- should this be compared to R where you would do like for seq(1,3)? -->
+<!-- should this be compared to R where you would do something like "for seq(1,3)"? -->
 
 
 ```Python

@@ -71,7 +71,7 @@ Some of the best-known graph optimization problems are:
   exclude those not in the clique.)
   
 ### Shortest path: *depth-first* search
-<!-- page 316 -->
+<!-- Textbook PDF page 316 -->
 
 **Depth-first search** (**DFS**) is usually **implemented recursively**. In general, a
 depth-first-search algorithm begins by choosing one child of the start node. It then chooses one
@@ -103,7 +103,7 @@ We can then define **the problem of finding the shortest connection between two 
   `G` connecting `n_i` and `ni+1`.
 
 ### Shortest path: *breadth-first* search
-<!-- page 321 -->
+<!-- Textbook PDF page 321 -->
 
 Of course, there are other ways to traverse a graph than depth-first. Another common approach is
 **breadth-first search** (**BFS**), which is usually **implemented iteratively**. A breadth-first
@@ -111,16 +111,16 @@ traversal first visits all children of the start node; if none of those is the e
 all children of each of those nodes, and so on. 
 
 BFS explores many paths simultaneously, adding one node to each path on each iteration. Since it
-generates the paths in ascending order of length, the first path found with the goal as its last
-node is guaranteed to have a minimum number of edges.
+generates the paths in ascending order of length, the first path found with the goal (the desired
+node) as the last node of the path is guaranteed to have a minimum number of edges.
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 ## Code
 
-[There is a "Code taxonomy" section below this one which has a list of objects used in this code; it
-might be useful to understand what's going on here (more efficient than moving up and down the page
-trying to find where objects came from and how they were defined).]
+[There is a section called "Code Taxonomy" below this one; it has a list of objects used in the code
+and might be useful to understand what's going on here (more efficient than moving up and down the
+page trying to find where objects came from and how they were defined).]
 
 ### Classes `Node`, `Edge`, `WeightedEdge`
 
@@ -329,7 +329,7 @@ def shortestPath(graph, start, end, toPrint = False):
     shortestPath is a wrapper for the DFS function
         graph is a Digraph object
         start and end are Node objects
-        toPrint is a boolean that says whether to print or not?
+        toPrint is a boolean that says whether to print or not
     """
     return DFS(graph, start, end, [], None, toPrint)
 
@@ -401,7 +401,7 @@ children. Each of these new paths is then added to `pathQueue`.
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
-## Code taxonomy
+## Code Taxonomy
 
 ### Types
 
@@ -429,7 +429,7 @@ children. Each of these new paths is then added to `pathQueue`.
 * `graph` is a Digraph object
 * `start` and `end` are Node objects
 * `path` is a list of nodes
-* `toPrint` is a boolean (to decide whether to print or not?)
+* `toPrint` is a boolean (to decide whether to print or not)
 * `shortest` is a list of nodes
 
 ————————————
@@ -455,6 +455,8 @@ directed graph(see image) and then search for a shortest path between node 0 and
 ![](https://github.com/juanantonio284/my_python_notes/blob/main/OOP/testSP_sample_graph.png)
 
 ```Python
+
+# this is testSP [1] for a depth-first search
 
 def testSP():
     
@@ -554,7 +556,7 @@ and explores the `path 0->1->2->4`. When it reaches the end of that path (node 4
 the way to node 0 and investigates the path starting with the edge from 0 to 2. And so on.
 
 <!-- #### Exercise -->
-<!-- Page 321 "Finger exercise" -->
+<!-- Textbook PDF page 321 "Finger exercise" -->
 <!-- The `DFS` algorithm implemented in finds the path with the minimum number of edges. If the
      edges have weights, it will not necessarily find the path that minimizes the sum of the
      weights of the edges. However, it is easily modified to do so. Modify the DFS algorithm to
@@ -568,6 +570,8 @@ the way to node 0 and investigates the path starting with the edge from 0 to 2. 
 ### `testSP` function for `BFS`
 
 ```Python
+
+# this is testSP [2] for a breadth-first search
 
 def testSP():
     
@@ -627,6 +631,6 @@ search for a path with the fewest edges because the first time a path is found, 
 be such a path.
 
 <!-- #### Exercise -->
-<!-- Page 323 "Finger exercise" -->
+<!-- Textbook PDF page 323 "Finger exercise" -->
 <!-- Consider a digraph with weighted edges. Is the first path found by BFS guaranteed to minimize
      the sum of the weights of the edges? -->

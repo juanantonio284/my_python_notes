@@ -2,7 +2,7 @@
 
 <!-- [Page 200] -->
 
-**Objects**: Objects are the core things that Python programs manipulate. Every object has a type
+**Objects**: Objects are the core things that Python programs manipulate. Every object has a *type*
   that defines the kinds of things that programs can do with that object. (Section 2.2.1)
 
 **The key to object-oriented programming**: think about objects as collections of both data *and*
@@ -20,6 +20,7 @@ name; with a method, we use dot notation to place that argument before the funct
 `object.method_name()`
  
 <!-- (They do differ from functions in some important ways, which we will discuss in Chapter 10.) -->
+<!-- I'm not sure they actually did! -->
 
 Many useful operations on built-in types are methods, and therefore invoked using dot notation. For
 example: for a string `s` there is `s.find`. The `find` method can be used to find the index of the
@@ -29,6 +30,8 @@ first occurrence of a substring in `s`. So, if `s` were `'abcbc'`, the invocatio
 Attempting to treat `find` as a function, e.g. invoking `find(s,'bc')`produces the error message
 `NameError: name 'find' is not defined`.
 
+<!-- maybe read this -->
+<!-- https://stackoverflow.com/questions/46312470/difference-between-methods-and-attributes-in-python -->
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 ## Abstract Data Types and Classes

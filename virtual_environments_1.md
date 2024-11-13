@@ -180,11 +180,16 @@ software installed into the environment may not work as expected.
 
 https://docs.posit.co/ide/server-pro/user/vs-code/guide/python-environments.html#set-the-default-project-interpreter
 
-Now you can configure VS Code always to use this virtual environment when working on this project.
-Open the Command Palette and type "Python: Select Interpreter". VS Code should automatically
-recommend the virtual environment you just created. Select it using the arrow keys and press enter.
-If VS Code does not automatically detect or recommend the new virtual environment, you can manually
-enter the path: "`./venv/bin/python`".
+Now you can configure VS Code always to use a given virtual environment when working on a
+project.
+
+Open the Command Palette and type "`Python: Select Interpreter`". 
+
+VS Code should automatically recommend the virtual environment you just created. Select it using the
+arrow keys and press enter. If VS Code does not automatically detect or recommend the new virtual
+environment, you can manually enter the path: "`./venv/bin/python`".
 
 Alternatively, you can select the default project interpreter by clicking on the Python section of
 the Status Bar located at the bottom right of the window.
+
+<!-- insert picture -->
