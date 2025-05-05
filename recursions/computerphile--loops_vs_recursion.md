@@ -10,7 +10,9 @@ Programming loops are great, but there's a point where they aren't enough.
 
 ## When were `for` loops invented?
 
-There's a lot of interesting stuff both from the point of view of the content but also the historical context between. Well, "for loops" is what ALGOL called them but prior to that FORTRAN called them "DO loops"; and prior to that, they existed in *Assembler*.
+There's a lot of interesting stuff both from the point of view of the content but also the
+historical context between. Well, "for loops" is what ALGOL called them but prior to that FORTRAN
+called them "DO loops"; and prior to that, they existed in *Assembler*.
 
 So, first of all, what's the history and what does it get you when you can do loops, but when do you
 run out of steam---even with loops---and you have to use this---shock! horror!---pure-mathematicians 
@@ -67,7 +69,8 @@ assembler was.
 
 How did loops become more "powerful"?
 
-Well, again, even in assembler and even in FORTRAN, there's no reason why you couldn't have a loop within a loop.
+Well, again, even in assembler and even in FORTRAN, there's no reason why you couldn't have a loop
+within a loop.
 
 So I might have, outside of all this code, yet another layer of DO. What shall we say:
 "`DO 200 J = 1, 20`". 
@@ -150,9 +153,8 @@ But FORTRAN doesn't do that: it sets aside one stack frame. You keep calling you
 just tramples in its muddy gumboots over all your data area and you end up with total garbage. It
 no more gives you values of the Ackermann function than fly to the moon!
 
-And people said: "I then realized the importance of having user-level recursion, in programming languages, to cope with those really hard problems that fell outside nested for-loops".
-
-<!-- the importance of having user-level recursion, in programming languages, to cope with those really hard problems that fell outside nested for-loops -->
+And people said: "I then realized **the importance of having user-level recursion, in programming
+languages, to cope with those really hard problems that fell outside nested for-loops**".
 
 ALGOL was famous in that its routines could call themselves recursively and could get the right
 answer and, for limited low-order values of Ackermann's function---very slow, very slow indeed---
@@ -198,13 +200,46 @@ the there were enough users, at the user level, who could see that a modicum of 
 more complicated than factorial but not quite up to full Ackermann capabilities would be very nice
 indeed to have within your language.
 
-Again referring back to that [original video][most_difficult_program], I had a lot of really interesting mail from various people who said to me: "OK, you said that this is an innately recursive problem and it just had to have general recursion capabilities? Well I .... "
-
-[Video ends here]
+[Video ends here, there is a preview of the next video]
 
 ## Extra Bits
 
 [Loops, Ackermann & Recursion][loops_ackermann_recursion]  
+
+Well, in the end 32 won't be enough, 128 won't be enough, 256 won't be enough; for high orders of
+Ackermann function, it will blow those apart eventually. 
+So the only way to do it, generally, is via a recursion mechanism where---as I said---it's all done
+in data areas called [stack frames][reverse_polish_notation_and_stack]. You can make the things go
+arbitrarily deep just by calling recursively.
+
+So what's the problem then? 
+The problem then is you'll eventually run out of memory.
+(For those who now want to go off and watch the most difficult program to compute ...)
+Steve Bagley, and I had set it off and we waited patiently three weeks.
+And Steve had given it a gigabyte of memory and, if we waited another three months, it would've just
+blown up and run out of memory, even then. 
+
+But---I think I pointed out also---the bigger problem was that the precision of the arithmetic was
+gonna do us down. I mean there were we with a 64-bit machine. What we needed to get the answer
+right was a thing where the lengths of integers weren't 64 bits but two to the power of 64 bits
+(which is something like twenty thousand decimal places).
+
+Again referring back to that original video, I had a lot of really interesting mail from various
+people who said to me: 
+"OK you said that this is an innately recursive problem and it just had to have general recursion
+ capabilities. Well, I want to tell you that I have implemented it in C and I have never called my
+ Ack routine recursively once! Not once have I called it recursively; so it can't be that the
+ problem, in general, requires recursion."
+
+So I then said: "Well, then let me take a look at what you've done to implement it." And what
+they've done was unbelievable sophisticated mechanisms, using "malloc", the memory allocator. And,
+basically, these very talented people were simulating a stack. They were given themselves stack
+frames, keeping them all adding up, keeping track of them, and so on. But it was basically: they
+weren't giving it the name recursion, but that's exactly what was happening. [Sean Riley asks: Is
+that manual recursion?] It was manual, cleverly-implemented, recursion and---yeah, I mean---even
+they admitted they would run out of resources eventually. "But I haven't called myself
+recursively" [Is what they would say]. No, but you've done everything that a recursion would do.
+You have to, to get the problem to work out alright.
 
 ## Related videos
 
@@ -212,7 +247,7 @@ Again referring back to that [original video][most_difficult_program], I had a l
 [What on Earth is Recursion?][what_on_earth_is_recursion]  
 [Reverse Polish Notation & the Stack][reverse_polish_notation_and_stack]  
 
-[loops_ackermann_recursion]: https://www.youtube.com/watch?v=DVG5G1V8Zx0
 [most_difficult_program]: https://www.youtube.com/watch?v=i7sm9dzFtEI
 [what_on_earth_is_recursion]: https://www.youtube.com/watch?v=Mv9NEXX1VHc
 [reverse_polish_notation_and_stack]: https://www.youtube.com/watch?v=7ha78yWRDlE
+[loops_ackermann_recursion]: https://www.youtube.com/watch?v=DVG5G1V8Zx0
