@@ -2,11 +2,12 @@
 
 <!-- [Page 200] -->
 
-**Objects**: Objects are the core things that Python programs manipulate. Every object has a *type*
-  that defines the kinds of things that programs can do with that object. (Section 2.2.1)
+**Objects**: objects are the core things that Python programs manipulate; every object has
+  a **type** that defines the kinds of things that programs can do with that object.
+  (Section 2.2.1)
 
 **The key to object-oriented programming**: think about objects as collections of both data *and*
-  the methods that operate on that data
+  the methods that operate on that data.
 
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
@@ -14,21 +15,25 @@
 <!-- [Page 109] -->
 
 **Methods are function-like objects**: they can be called with parameters, return values, and have
-side effects. For now, **think of methods simply as functions invoked with a peculiar syntax, dot
-notation**. With a function we put the first argument inside parentheses following the function
-name; with a method, we use dot notation to place that argument before the function name. e.g.
-`object.method_name()`
+side effects. For now, think of it this way: **methods are functions invoked with a peculiar syntax,
+dot notation**. With a function we put the first argument inside parentheses following the function
+name; with a method, we use dot notation to place that argument before the function name, e.g.
+`object.method_name()`.
  
 <!-- (They do differ from functions in some important ways, which we will discuss in Chapter 10.) -->
 <!-- I'm not sure they actually did! -->
 
-Many useful operations on built-in types are methods, and therefore invoked using dot notation. For
-example: for a string `s` there is `s.find`. The `find` method can be used to find the index of the
-first occurrence of a substring in `s`. So, if `s` were `'abcbc'`, the invocation `s.find
-('bc')` would return `1`.
+**Many useful operations on built-in types are methods** (and therefore invoked using dot notation). 
 
-Attempting to treat `find` as a function, e.g. invoking `find(s,'bc')`produces the error message
-`NameError: name 'find' is not defined`.
+Example:
+
+For a string `s` there is `s.find` (meaning that the `find` method can be used to find the index of
+the first occurrence of a substring in `s`). 
+
+* If `s` were `'abcbc'`, the invocation `s.find ('bc')` would return `1`
+
+* Attempting to treat `find` as a function, invoking `find(s,'bc')`, produces the error message
+  `NameError: name 'find' is not defined`.
 
 <!-- maybe read this -->
 <!-- https://stackoverflow.com/questions/46312470/difference-between-methods-and-attributes-in-python -->
@@ -125,13 +130,14 @@ class**.
 
 For example: 
 
-When the line of code `s = Toy()` is executed the interpreter will create a new **instance**
+When the line of code `s = Toy()` is executed, the interpreter will create a new **instance**
 (`s`) of *type* `Toy`. 
 
 ```Python
 
 # same as above, for easy reading
 class Toy(object):
+    
     def __init__(self):
         self._elems = []
     
@@ -181,20 +187,26 @@ print( t1 is t2 ) #False (this is a test for object identity)
 
 **Attributes** can be associated either with a class itself or with instances of a class:
 
+When data attributes are associated with a class, we call them *class variables*. When they are
+associated with an instance, we call them *instance variables*. 
+
 * Class attributes are defined in a class definition; for example `Toy.size` is an attribute of the
-  class `Toy`. When the class is instantiated by the statement `t = Toy()`, for example; instance
-  attributes, such as `t.size`, are created.
+  class `Toy`
+
+* Instance attributes are created when the class is instantiated; for example the statement `t = Toy
+  ()` creates the attribute `t.size`
 
     - `t.size` is initially bound to the `size` function defined in the class `Toy`, but that
       binding can be changed during the course of a computation. For example, you could
       (but definitely should not!) change the binding by executing `t.size = 3`.
-
-* When data attributes are associated with a class, we call them *class variables*. When they are
-  associated with an instance, we call them *instance variables*. 
   
-    - For example, `_elems` is an instance variable because for each instance of class `Toy`,
-      `_elems` is bound to a different list. [So far, we haven't seen a class variable. We will use
-      one in Figure 10-4.] 
+* `_elems`,  for example, would be an instance variable because for each instance of class `Toy`,
+  `_elems` is bound to a different list.[^Note_class_var]
+  
+[^Note_class_var]: 
+So far, we haven't seen a class variable. We will use one in Section 10.2, Figure 10-4.
+
+<!--  -->
 
 Now, consider the code
 
@@ -203,8 +215,8 @@ Now, consider the code
 t1 = Toy()
 t2 = Toy()
 
-t1.add([3, 4]) # adds the integers 3 and 4 to the _elems instance variable in t1
-t2.add([4]) # adds the integers 4 to the _elems instance variable in t2
+t1.add( [3, 4] ) # adds the integers 3 and 4 to the _elems instance variable in t1
+t2.add( [4] )    # adds the integers 4 to the _elems instance variable in t2
 
 print( t1.size() + t2.size() ) # adds the length of the list in t1 to the length of the list in t2
 #         2      +     1
@@ -219,22 +231,23 @@ Since each instance of `Toy` is a different object, each instance of type Toy wi
 ### Keyword `self` (first parameter of a method)
 <!-- [Page 204] -->
 
-At first blush, something appears to be inconsistent in this code. It looks as if each method is
-being called with one argument too few. For example, add has two formal parameters, but we appear
-to be calling it with only one actual parameter. This is an artifact of using dot notation to
-invoke a method associated with an instance of a class. The object associated with the expression
-preceding the dot is implicitly passed as the first parameter to the method. Throughout this book,
-we follow the convention of using `self` as the name of the formal parameter to which this actual
-parameter is bound. Python programmers observe this convention almost universally, and we strongly
-suggest that you use it as well.
+At first blush, something appears to be inconsistent in this code; it looks as if each method is
+being called with one argument too few. For example, the `add` method has two formal parameters
+(`add(self, new_elems):`) but we appear to be calling it with only one actual parameter. 
+
+This is an artifact of using dot notation to invoke a method associated with an instance of a class.
+The object associated with the expression preceding the dot is implicitly passed as the first
+parameter to the method. Throughout this book, we follow the convention of using `self` as the name
+of the formal parameter to which this actual parameter is bound. Python programmers observe this
+convention almost universally, and we strongly suggest that you use it as well.
 
 [summary below from  
 https://stackoverflow.com/questions/2709821/what-is-the-purpose-of-the-self-parameter-why-is-it-needed ]
 
-Python decided to do methods in a way that makes (the instance to which the method belongs) be
+Python decided to do methods in a way that makes *the instance to which the method belongs* be
 passed automatically, but not received automatically: the first parameter of any method is the
 instance the method is called on. That makes methods entirely the same as functions and leaves the
-actual name to use up to you (keep in mind that 'self' is the name used by convention, and people
+actual name to use up to you. (Keep in mind that '`self`' is the name used by convention, and people
 will generally frown at you when you use something else.). 
 
 The reason you need to use `self` is because Python does not use special syntax to refer to instance
