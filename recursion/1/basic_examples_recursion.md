@@ -1,8 +1,7 @@
 # Basic Examples of Recursion
 
-This code, and a full tutorial, can be found at:  
-https://realpython.com/python-thinking-recursively/  
-Here is a condensed version that I find clearer (changed some explanations and code)
+This code, and a full tutorial, can be found [here][rp_recursions]. This is a condensed version that
+I find clearer (changed some explanations and code).
 
 ## Get an intuition of how recursion works
 
@@ -27,21 +26,18 @@ def deliver_presents_iteratively():
 # recursive ......................................
 
 def deliver_presents_recursively(houses):
-    
     if len(houses) == 1:
         house = houses[0] # first item on the list
         print("Delivering presents to", house)
-
     else:        
-        # Note: 
-        # the recursion is double (there are two calls to the function); one takes care of the first
-        # half of the list, the other one the second half.
         mid = len(houses) // 2
         first_half = houses[:mid]
         second_half = houses[mid:]
 
-        deliver_presents_recursively(first_half)
-        deliver_presents_recursively(second_half)
+        # Note: 
+        # the recursion is double (there are two calls to the function) 
+        deliver_presents_recursively(first_half)  # this call takes care of the first half of list
+        deliver_presents_recursively(second_half) # this call takes care of the second half
         
 deliver_presents_recursively(houses)
 
@@ -53,14 +49,15 @@ deliver_presents_recursively(houses)
 When dealing with recursive functions, keep in mind that each recursive call has its own execution
 context, so to maintain state during recursion you have to either:
 
-1. Thread the state through each recursive call so that the current state is part of the current
-call's execution context (i.e. pass the updated current state to each recursive call as arguments)
+1. thread the state through each recursive call so that the current state is part of the current
+call's execution context (i.e. pass the updated current state to each recursive call as arguments),
+or
 
-2. Keep the state in the global scope
+2. keep the state in the global scope
 
 ### Example 1 - Thread the state
 
-Let's calculate 1 + 2 + 3 ⋅⋅⋅⋅ + 10 using recursion. 
+Let's calculate `1 + 2 + 3 ⋅⋅⋅⋅ + 10` using recursion. 
 
 The state that we have to maintain is: `(current number we are adding, sum up to this point)`.
 
@@ -94,6 +91,13 @@ Note:
 The `global` statement tells Python that these variables will be modified in the global scope rather
 than within the scope of the function.
 
+> "The indiscriminate use of global variables can lead to lots of problems. The key to making
+   programs readable is locality. One reads a program a piece at a time, and the less context
+   needed to understand each piece, the better. Since global variables can be modified or read in a
+   wide variety of places, the sloppy use of can destroy locality. Nevertheless, there are times
+   when they are just what is needed." — John V. Guttag (Introduction to Computation and
+   Programming using Python, 2nd ed.)
+
 ```Python
 
 # Global mutable state
@@ -119,18 +123,11 @@ def sum_all_in_range_global_scope():
 
 ```
 
-> "The indiscriminate use of global variables can lead to lots of problems. The key to making
-   programs readable is locality. One reads a program a piece at a time, and the less context
-   needed to understand each piece, the better. Since global variables can be modified or read in a
-   wide variety of places, the sloppy use of can destroy locality. Nevertheless, there are times
-   when they are just what is needed." — John V. Guttag (Introduction to Computation and
-   Programming using Python, 2nd ed.)
-
 
 <!-- ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈***≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ -->
 ## Recursive Data Structures in Python
 
-A data structure is recursive if it can be deﬁned in terms of a smaller version of itself (e.g. a
+A data structure is recursive if it can be defined in terms of a smaller version of itself (e.g. a
 list, tree, dictionary, etc.).
 
 Assume that you have only an empty list at your disposal, and the only operation you can perform on
@@ -139,7 +136,7 @@ it is this:
 ```Python
 
 # Return a new list that is the result of
-# adding element to the head (i.e. front) of input_list
+# adding "element" to the head (i.e. the front) of input_list
 def attach_head(element, input_list):
     return [element] + input_list
 
@@ -159,11 +156,10 @@ def sum_all_in_list(input_list):
 
     # Recursive case
     # Decompose the original problem into simpler instances of the same problem by making use of the
-    # fact that the input is a recursive data structure and can be deﬁned in terms of a smaller
+    # fact that the input is a recursive data structure and can be defined in terms of a smaller
     # version of itself
-    
     else:
-        head = input_list[0] # the first element in the list
+        head = input_list[0]          # the first element in the list
         smaller_list = input_list[1:] # all elements from second to last
         
         print( "head:", head )                  #debug .....
@@ -177,3 +173,6 @@ sum_all_in_list([1, 2, 3])
 # 6
 
 ```
+
+
+[rp_recursions]: https://realpython.com/python-thinking-recursively/  
