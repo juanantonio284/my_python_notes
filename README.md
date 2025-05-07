@@ -36,12 +36,14 @@ everything sequentially, but that doesn't make clear that the exercises are rela
   
 * `string_slicing.md`: an explanation of how slicing works
 
-### recursions
+### recursion
+
+This folder has three folders—which should be read in order—containing the following files:
 
 * `basic_examples_recursion.md`
 
 * `recursions_unit_2_lesson_4.md` contains all (or most) of the material regarding recursions
-  presented in the course. 
+  presented in the course
 
   - `recursions_u2l4_CODE_part_1.py` (and `...part 2`) have the same code as the markdown but are
     ready to use in python
@@ -51,6 +53,10 @@ everything sequentially, but that doesn't make clear that the exercises are rela
   code (exponential running time as size of the input gets larger). The explanation in this page is
   much more detailed than anything that was given. There is a `.py` file with the code ready for
   running
+  
+* `computerphile--loops_vs_recursion.md` a transcript from an interview with professor David
+  Brailsford in which he discusses when recursions are truly needed ("to cope with those really
+  hard problems that fell outside nested for-loops")
 
 ### abstraction
 
