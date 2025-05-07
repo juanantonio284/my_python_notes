@@ -1,13 +1,18 @@
 # A Recursion to Generate Subsets From a List
 
-I have a list `L` with various elements, i.e. a set, and I'd like to find all possible subsets. The
-result will, itself, be a list (each subset is also expressed as a list). 
+[From Unit 6, Lecture 11, Segment 3]
 
-If, for example, I've got a list of the integers 1, 2, 3, and 4: 
+I have a list `L` with various elements, i.e. a set, and I'd like to find all possible subsets.  
+The result will, itself, be a list (each subset is also expressed as a list).
 
-The empty list is counted as a subset. The list that only contains the number 1 is a subset(in fact,
-every list that contains a single number would be a subset). Other subsets would be lists of 
-` (1, 2)`, `(1, 3)`, `(1, 4)`, `(2, 3)`, `(2, 4)`, etc.
+**Example**
+
+For a list of the integers 1, 2, 3, and 4: 
+
+* The empty list is counted as a subset  
+* The list that only contains the number 1 is a subset (in fact, every list that contains a single
+  number would be a subset)  
+* Other subsets would be lists of `(1, 2)`, `(1, 3)`, `(1, 4)`, `(2, 3)`, `(2, 4)`, etc.
 
 **The strategy** to generate all of the subsets of a list `L1` is to first generate all the subsets
 for a list that is smaller by one element (call this `L2`) and, later, add more subsets that include
@@ -16,8 +21,8 @@ the element that was taken off.
 ## Code and explanation
 
 1. My base case is when there is nothing in the list. But I still get all possible subsets from it
-(i.e. just one empty list), and return the result—a list with an empty list inside. 
-`if len(L) == 0: return [[]]`
+and return the result. ("All possible subsets" amounts to just one empty list and the returned
+result is a list with an empty list inside: `if len(L) == 0: return [[]]`.)
 
 2. I re-call the function `smaller = genSubsets( L[ :-1] )` and, in this call, the input passed is a
 new list `L2` that contains *everything but* the last element of `L1`. The result of this call is
@@ -95,7 +100,7 @@ which is useful to see how the code works.
 This section presents details one by one, chopping up the output. (The appendix section presents the
 whole output as it comes in the terminal.)
 
-### 1
+### 1.
 
 Every time the function is called, these are the first two steps:
 
@@ -132,7 +137,7 @@ function start
          
 ```
 
-### 2
+### 2.
 
 After all the recursive calls, and the completion to base case, the rest of the code runs.
 
